@@ -417,34 +417,43 @@
 
 
 
-  
-  
-  
 
-  
+<!-- valine -->
 
-  
-
- 
-  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '88aeb2f2c7a278834f9c',
-  	clientSecret: '10044dbf2e67f9431d21e1f68f8ce24a755cef73',
-  	repo: 'git-comment',
-  	owner: 'FuShengming',
-  	admin: ['FuShengming'],
-  	id: 'Tue Jun 08 2021 17:36:26 GMT+0800',
-  	distractionFreeMode: 'true'
-})
-gitalk.render('gitalk-container') 
-}
+  <section id="comments" class="comments">
+    <style>
+      .comments{margin:30px;padding:10px;background:#fff}
+      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+    </style>
+    <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "YubpeFlKRKqGXKNbSWDagw5E-gzGzoHsz",
+            app_key: "HODFB7e2jpVdn8tYerkvfnAc",
+            placeholder: "有话要说？",
+            avatar:"retro"
+        });
+    }
 </script>
+
+</section>
+
+
+<!-- valine end -->
+
+  
+  
+  
+
+  
 
   
 
