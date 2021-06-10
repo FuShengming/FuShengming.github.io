@@ -255,11 +255,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="前缀和问题随手记"><a href="#前缀和问题随手记" class="headerlink" title="前缀和问题随手记"></a>前缀和问题随手记</h1><p>​    复健过程中遇到前缀和问题，随手记录一下</p>
-<p>​    对于需要求某个数组i-j的元素和的问题，不考虑暴力法的情况下，可用下面方法解决：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Sum[i~j]=Sum[0~j]-Sum[0~i-1]</span><br></pre></td></tr></table></figure>
-
-
+        <h1 id="前缀和问题随手记"><a href="#前缀和问题随手记" class="headerlink" title="前缀和问题随手记"></a>前缀和问题随手记</h1><p>​
+        
+          <a class="article-more-a" href="/2021/06/10/%E5%89%8D%E7%BC%80%E5%92%8C%E9%97%AE%E9%A2%98%E9%9A%8F%E6%89%8B%E8%AE%B0/#more">more >></a>
+        
       
 
 <!-- 版权声明 -->
@@ -508,29 +507,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Leetcode-动态规划"><a href="#Leetcode-动态规划" class="headerlink" title="Leetcode-动态规划"></a>Leetcode-动态规划</h1><h2 id="动态规划简介"><a href="#动态规划简介" class="headerlink" title="动态规划简介"></a>动态规划简介</h2><h3 id="动态规划的背景"><a href="#动态规划的背景" class="headerlink" title="动态规划的背景"></a>动态规划的背景</h3><ul>
-<li><p>动态规划的核心思想： <strong>找出子问题及其子问题与原问题的关系 （转换方式）。</strong></p>
-</li>
-<li><p>动态规划要解决的问题一般都是求一些问题的在<strong>最优解</strong>，求一个问题最优解时将其分为多个子问题，然后递归找到每个<strong>子问题的最优解</strong>，然后通过对每个子问题最优解的<strong>转换和组合</strong>（状态转移方程）来的到最后原问题的最优解。</p>
-</li>
-<li><p>组合子问题的解获取原问题的解时动态规划可行性的关键</p>
-</li>
-<li><p><strong>注意</strong>：普通的递归方式因为有些<strong>子问题会在递归中出现多次</strong>，也就会出现许多的对这些子问题的<strong>重复计算</strong>。例如求斐波那契数列普通递归时，f(2)，f(3)这种很小的子问题会被求解很多次。动态规划的优势就在于可以<strong>保证每个重叠的子问题只会被求解一次</strong></p>
-<ul>
-<li>注意，这也意味着，<strong>如果没有会被重复求解的问题，dp与普通递归的效率一般是相同的。</strong></li>
-<li><strong>记忆化递归法：若能事先确定子问题的范围就可以建表存储子问题的答案</strong>（一般为dp数组本身）</li>
-</ul>
-</li>
-<li><p>动态规划算法中关于最优子结构和重复子问题的理解的关键点：</p>
-<ol>
-<li>证明问题的方案中包含一种选择，选择之后留下一个或多个子问题</li>
-<li>设计子问题的递归描述方式</li>
-<li>证明对原问题的最优解包括了对所有子问题的最优解</li>
-<li>证明子问题是重叠的（这一步不是动态规划正确性必需的，<strong>但是如果子问题无重叠</strong>，<strong>则效率与一般递归是相同的</strong>）</li>
-</ol>
-</li>
-</ul>
-
+        <h1 id="Leetcode-动态规划"><a href="#Leetcode-动态规划" class="headerlink" title="Leetcode-动态规划"></a>Leetcode-动态规划</h1>
+        
+          <a class="article-more-a" href="/2021/06/10/Leetcode%E7%AE%97%E6%B3%95-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/#more">more >></a>
+        
       
 
 <!-- 版权声明 -->
