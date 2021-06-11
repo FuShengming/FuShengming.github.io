@@ -255,10 +255,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Leetcode每日一题-20210611"><a href="#Leetcode每日一题-20210611" class="headerlink" title="Leetcode每日一题-20210611"></a>Leetcode每日一题-20210611</h1><p>​
-        
-          <a class="article-more-a" href="/2021/06/11/Leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-20210611/#more">more >></a>
-        
+        <h1 id="Leetcode每日一题-20210611"><a href="#Leetcode每日一题-20210611" class="headerlink" title="Leetcode每日一题-20210611"></a>Leetcode每日一题-20210611</h1><p>​    <!--查看全文--></p>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><h4 id="279-完全平方数"><a href="#279-完全平方数" class="headerlink" title="279. 完全平方数"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/perfect-squares/">279. 完全平方数</a></h4><p>难度中等967收藏分享切换为英文接收动态反馈</p>
+<p>给定正整数 <em>n</em>，找到若干个完全平方数（比如 <code>1, 4, 9, 16, ...</code>）使得它们的和等于 <em>n</em>。你需要让组成和的完全平方数的个数最少。</p>
+<p>给你一个整数 <code>n</code> ，返回和为 <code>n</code> 的完全平方数的 <strong>最少数量</strong> 。</p>
+<p><strong>完全平方数</strong> 是一个整数，其值等于另一个整数的平方；换句话说，其值等于一个整数自乘的积。例如，<code>1</code>、<code>4</code>、<code>9</code> 和 <code>16</code> 都是完全平方数，而 <code>3</code> 和 <code>11</code> 不是。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 12</span><br><span class="line">输出：3 </span><br><span class="line">解释：12 = 4 + 4 + 4</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 13</span><br><span class="line">输出：2</span><br><span class="line">解释：13 = 4 + 9</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li>1 &lt;= n &lt;= 10^4</li>
+</ul>
+<h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numSquares</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] f = <span class="keyword">new</span> <span class="keyword">int</span>[n + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> minn = Integer.MAX_VALUE;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j * j &lt;= i; j++) &#123;</span><br><span class="line">                minn = Math.min(minn, f[i - j * j]);</span><br><span class="line">            &#125;</span><br><span class="line">            f[i] = minn + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> f[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h3><p>类似完全背包问题，参考背包问题笔记</p>
+
       
 
 <!-- 版权声明 -->
@@ -381,10 +396,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Leetcode算法-dp背包问题专题"><a href="#Leetcode算法-dp背包问题专题" class="headerlink" title="Leetcode算法-dp背包问题专题"></a>Leetcode算法-dp背包问题专题</h1><p>​
-        
-          <a class="article-more-a" href="/2021/06/11/Leetcode%E7%AE%97%E6%B3%95-dp%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E4%B8%93%E9%A2%98/#more">more >></a>
-        
+        <h1 id="Leetcode算法-dp背包问题专题"><a href="#Leetcode算法-dp背包问题专题" class="headerlink" title="Leetcode算法-dp背包问题专题"></a>Leetcode算法-dp背包问题专题</h1><p>​    <!--查看全文--></p>
+<h3 id="0-1背包中的逆序问题"><a href="#0-1背包中的逆序问题" class="headerlink" title="0-1背包中的逆序问题"></a>0-1背包中的逆序问题</h3><p>​    降维后的dp数组的dp[i]表示的是，只在当前<strong>这次外循环（对物品列表的循环，设为j，及原来的二维数组的另外一维度）以及当前循环以前的物品中（包含此次外循环对应的物品）选</strong>时，容积为i的背包能够装下的最大价值。</p>
+<p>​    其中的状态转换逻辑为，此次外循环的每个dp[i],由上次外循环的dp[0<del>i-1]转移来。即，本次外循环（index=j）时，体积为 i 的背包能装的价值最大值为，体积为0</del>i-1（中的某些，实际上是i-w[j]）的背包，<strong>在0~j-1的物品中选装时</strong>的最大值，再加上（i&gt;=w[j]）或不加上(i&lt;w[j]) j号物品的价值所得到的值。</p>
+<p>​    因为转移时，需要用到的是容量为i-w[j]的背包，<strong>只选装0~j-1号物品</strong>时的最大价值。如果在某次外循环时，对i是顺序遍历的，那么，在遍历到 i 体积背包前，i-w[j] 体积背包就已经被遍历到并处理（判断是否要装入j号物品并改变其对应的最大价值）了，这时dp[i-w[j]]记录的就是，i-w[j]体积背包选装 <strong>0~j号物品</strong>的价值最大价值（当然，因为顺序遍历，i-w[j]的这个最大值计算出来可能也是错误的），而非我们所需要的<strong>只选装0~j-1号物品</strong>时的最大价值。</p>
+
       
 
 <!-- 版权声明 -->
@@ -626,10 +642,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="前缀和问题随手记"><a href="#前缀和问题随手记" class="headerlink" title="前缀和问题随手记"></a>前缀和问题随手记</h1><p>​
-        
-          <a class="article-more-a" href="/2021/06/10/%E5%89%8D%E7%BC%80%E5%92%8C%E9%97%AE%E9%A2%98%E9%9A%8F%E6%89%8B%E8%AE%B0/#more">more >></a>
-        
+        <h1 id="前缀和问题随手记"><a href="#前缀和问题随手记" class="headerlink" title="前缀和问题随手记"></a>前缀和问题随手记</h1><p>​    <!--查看全文--></p>
+<p>复健过程中遇到前缀和问题，随手记录一下</p>
+<p>​    对于需要求某个数组i-j的元素和的问题，不考虑暴力法的情况下，可用下面方法解决 ：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Sum[i~j]=Sum[0~j]-Sum[0~i-1]</span><br></pre></td></tr></table></figure>
+
+
       
 
 <!-- 版权声明 -->
@@ -752,10 +770,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="LC每日一题-20210610"><a href="#LC每日一题-20210610" class="headerlink" title="LC每日一题-20210610"></a>LC每日一题-20210610</h1><p>​
-        
-          <a class="article-more-a" href="/2021/06/10/Leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-20210610/#more">more >></a>
-        
+        <h1 id="LC每日一题-20210610"><a href="#LC每日一题-20210610" class="headerlink" title="LC每日一题-20210610"></a>LC每日一题-20210610</h1><p>​    <!--查看全文--> </p>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><h4 id="518-零钱兑换-II"><a href="#518-零钱兑换-II" class="headerlink" title="518. 零钱兑换 II"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/coin-change-2/">518. 零钱兑换 II</a></h4><p>难度中等456收藏分享切换为英文接收动态反馈</p>
+<p>给定不同面额的硬币和一个总金额。写出函数来计算可以凑成总金额的硬币组合数。假设每一种面额的硬币有无限个。 </p>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入: amount = 5, coins = [1, 2, 5]</span><br><span class="line">输出: 4</span><br><span class="line">解释: 有四种方式可以凑成总金额:</span><br><span class="line">5=5</span><br><span class="line">5=2+2+1</span><br><span class="line">5=2+1+1+1</span><br><span class="line">5=1+1+1+1+1</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: amount = 3, coins = [2]</span><br><span class="line">输出: 0</span><br><span class="line">解释: 只用面额2的硬币不能凑成总金额3。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: amount = 10, coins = [10] </span><br><span class="line">输出: 1</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong><strong>:</strong></p>
+<p>你可以假设：</p>
+<ul>
+<li>0 &lt;= amount (总金额) &lt;= 5000</li>
+<li>1 &lt;= coin (硬币面额) &lt;= 5000</li>
+<li>硬币种类不超过 500 种</li>
+<li>结果符合 32 位符号整数</li>
+</ul>
+<h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> amount, <span class="keyword">int</span>[] coins)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[amount + <span class="number">1</span>];</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> coin : coins) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = coin; i &lt;= amount; i++) &#123;</span><br><span class="line">                dp[i] += dp[i - coin];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[amount];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h3><p>​    本质上是简化（降维）的背包问题，背包问题中每个元素只有一个（只能选一次），本题是每个元素可以选无数次。</p>
+<p>​    动态规划数组意义为dp[i]=总值为 i 的硬币组合的数目。对于每种coin, dp[i]+=dp[i-coin]，coin&lt;i&lt;amount。</p>
+<p>​    即，dp[i]（组成i的组合数）等于dp[i-coin]（组成i-coin的硬币组合再添加一个值为coin的硬币）。</p>
+<p>​    外循环意义为，<strong>本次循环只使用本循环以及本循环之前的coin（只含本次循环之前的coin的组合是前几次外循环组合好的）</strong>，每次外循环只是用当前的coin加入其他组合（所谓的其他组和就是本次外循环之前的外循环中初始化好的）。</p>
+<p>​    注意，仔细思考一下，<strong>一种coin在一个组合里被使用多种的情况是用内循环实现的。</strong></p>
+
       
 
 <!-- 版权声明 -->
@@ -878,10 +920,63 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Leetcode-动态规划"><a href="#Leetcode-动态规划" class="headerlink" title="Leetcode-动态规划"></a>Leetcode-动态规划</h1><p>​
-        
-          <a class="article-more-a" href="/2021/06/10/Leetcode%E7%AE%97%E6%B3%95-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/#more">more >></a>
-        
+        <h1 id="Leetcode-动态规划"><a href="#Leetcode-动态规划" class="headerlink" title="Leetcode-动态规划"></a>Leetcode-动态规划</h1><p>​    <!--查看全文--></p>
+<h2 id="动态规划简介"><a href="#动态规划简介" class="headerlink" title="动态规划简介"></a>动态规划简介</h2><h3 id="动态规划的背景"><a href="#动态规划的背景" class="headerlink" title="动态规划的背景"></a>动态规划的背景</h3><ul>
+<li><p>动态规划的核心思想： <strong>找出子问题及其子问题与原问题的关系 （转换方式）。</strong></p>
+</li>
+<li><p>动态规划要解决的问题一般都是求一些问题的在<strong>最优解</strong>，求一个问题最优解时将其分为多个子问题，然后递归找到每个<strong>子问题的最优解</strong>，然后通过对每个子问题最优解的<strong>转换和组合</strong>（状态转移方程）来的到最后原问题的最优解。</p>
+</li>
+<li><p>组合子问题的解获取原问题的解时动态规划可行性的关键</p>
+</li>
+<li><p><strong>注意</strong>：普通的递归方式因为有些<strong>子问题会在递归中出现多次</strong>，也就会出现许多的对这些子问题的<strong>重复计算</strong>。例如求斐波那契数列普通递归时，f(2)，f(3)这种很小的子问题会被求解很多次。动态规划的优势就在于可以<strong>保证每个重叠的子问题只会被求解一次</strong></p>
+<ul>
+<li>注意，这也意味着，<strong>如果没有会被重复求解的问题，dp与普通递归的效率一般是相同的。</strong></li>
+<li><strong>记忆化递归法：若能事先确定子问题的范围就可以建表存储子问题的答案</strong>（一般为dp数组本身）</li>
+</ul>
+</li>
+<li><p>动态规划算法中关于最优子结构和重复子问题的理解的关键点：</p>
+<ol>
+<li>证明问题的方案中包含一种选择，选择之后留下一个或多个子问题</li>
+<li>设计子问题的递归描述方式</li>
+<li>证明对原问题的最优解包括了对所有子问题的最优解</li>
+<li>证明子问题是重叠的（这一步不是动态规划正确性必需的，<strong>但是如果子问题无重叠</strong>，<strong>则效率与一般递归是相同的</strong>）</li>
+</ol>
+</li>
+<li><p>递归–不存储上一个子问题结果，遇到后再次重复计算；dp–存储上一个子问题结果，遇到时不需重复计算而是直接查询</p>
+</li>
+</ul>
+<h3 id="动态规划的思考过程"><a href="#动态规划的思考过程" class="headerlink" title="动态规划的思考过程"></a>动态规划的思考过程</h3><p>动态规划的思考难点： </p>
+<ol>
+<li>定义f(n)</li>
+<li>确定状态转移方程</li>
+</ol>
+<h3 id="动态规划与其他算法"><a href="#动态规划与其他算法" class="headerlink" title="动态规划与其他算法"></a>动态规划与其他算法</h3><ul>
+<li>分治算法<ul>
+<li>分治算法的思想同样是降低问题的规模以处理子问题，并通过最小子问题（最优子结构）的解来组合获得原问题的解</li>
+<li>例如归并排序，将要排序的数组平均分为两半，然后不断进行递归最终组合出真正的原排序</li>
+<li>但分治算法是没有<strong>重复</strong>子问题的，例如归并排序，所分的数组两半并没有重复的元素，不需要进行重复的递归和排序处理</li>
+</ul>
+</li>
+<li>贪心算法<ul>
+<li>最优子结构方面<ul>
+<li>贪心算法是一步一步来，取每一步的最优并不断和上一步的最优组合最后形成结果，所以<strong>每一步只会包含上一步的最优解，而无需记录上一步之前的最优解。</strong>或者说，贪心的子问题(最优子结构)只是当前这一步。</li>
+<li>dp的思想是原问题最优解中一定会包含某个子问题的最优解，但不一定有或者只有最后一个子问题（最后一步）的最优解。所以，dp需要记录之前所有的局部最优解。</li>
+</ul>
+</li>
+<li>子问题最优解组合为原问题最优解的方式<ul>
+<li>贪心算法是每一步取最优然后按步组合，相当于从一棵树的根出发，只走<strong>一条路径</strong>（每一步都最优的路径），最后到达最底层的叶节点，这条路径或叶节点本身就是答案。贪心只看到一根树枝。</li>
+<li>dp是先去计算所有每一个叶节点的值，然后通过某种组合方式，将其组合为上层的父节点，再通过某种组合方式组成更上层的祖先节点，这样不断递归（迭代），最终得到根节点。所有子树都得到最优解后，将其组成最后的答案。dp是需要看到<strong>整棵树的所有结点</strong>。</li>
+</ul>
+</li>
+<li>结果正确性方面<ul>
+<li>贪心只保证每一当前步最佳，<strong>不能保证最后得到的结果是最佳的</strong>，复杂度低</li>
+<li>dp本质上是穷举，<strong>能够保证最后的结果最佳</strong>，复杂度高。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
       
 
 <!-- 版权声明 -->
@@ -1000,10 +1095,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="第一章-mysql架构与历史"><a href="#第一章-mysql架构与历史" class="headerlink" title="第一章 mysql架构与历史"></a>第一章 mysql架构与历史</h1><p>​
-        
-          <a class="article-more-a" href="/2021/06/08/%E7%AC%AC%E4%B8%80%E7%AB%A0%20mysql%E6%9E%B6%E6%9E%84%E4%B8%8E%E5%8E%86%E5%8F%B2/#more">more >></a>
-        
+        <h1 id="第一章-mysql架构与历史"><a href="#第一章-mysql架构与历史" class="headerlink" title="第一章 mysql架构与历史"></a>第一章 mysql架构与历史</h1><p>​    <!--查看全文--> </p>
+<p>• Mysql服务器逻辑架构<br>    ○ <img src="https://user-images.githubusercontent.com/37178801/121160007-4c82b100-c87e-11eb-8ed2-e86720d4656c.png" alt="image"><br>    ○ 架构图<br>        § 第一层不是Mysql独有，多数基于网络的服务和工具都有类似的架构<br>        § 第二层<br>            □ 多数Mysql核心功能<br>            □ 查询解析、分析、优化、缓存、所有的内置函数<br>            □ 跨存储引擎的功能<br>                ® 存储过程、触发器、视图<br>                    ◊ 存储过程（Stored Procedure）是一种在数据库中存储复杂程序，以便外部程序调用的一种数据库对象。存储过程是为了完成特定功能的SQL语句集，经编译创建并保存在数据库中，用户可通过指定存储过程的名字并给定参数(需要时)来调用执行。<br>                    ◊ 存储过程思想上很简单，就是数据库 SQL 语言层面的代码封装与重用。<br>                    ◊ 存储过程可封装，并隐藏复杂的商业逻辑</p>
+<p>​        § 第三层 存储引擎<br>​            □ 负责数据的存储和提取<br>​            □ 提供包含几十个底层函数的API。API屏蔽不同存储引擎的差异。<br>​            □ 除了InnoDB会解析外键定义外，存储引擎不会解析SQL<br>​            □ 不同引擎不会相互通信，只是相应上层请求<br>​    ○ 连接管理与安全性<br>​        § 每个客户端连接都会在Mysql服务器中有一个线程，这个连接的查询只会在这个单独的线程中执行<br>​        § 线程只能轮流在某个CPU核或者某个CPU中运行<br>​        § Mysql有线程缓存功能，将线程缓存下来以避免为每个新连接都创建新的线程儿造成线程的频繁创建与释放<br>​        § Mysql5.5新增的线程池的支持，线程池中少量线程服务大量连接<br>​        § 认证方式<br>​            □ 客户端连接Mysql服务器时需要进行安全认证<br>​                ® 用户、原始主机信息、密码方式<br>​                ® SSL连接可以使用X.509证书认证<br>​            □ 在连接成功后，服务端还会继续验证该客户端有没有执行某个查询的权限<br>​    ○ 优化与执行<br>​        § mysql解析查询–&gt;构建解析树–&gt;进行优化<br>​        § 优化<br>​            □ 重写查询<br>​            □ 决定表的读取顺序<br>​            □ 选择合适的索引<br>​            □ ….<br>​        § 用户可以使用特定关键字影响优化器的决策过程<br>​        § 可以explain优化器的决策的因素<br>​        § 优化器不关心某个表的存储引擎，但存储引擎不同对于优化查询有影响<br>​            □ 优化器会向存储引擎查询容量、某个操作的开销以及某个表数据的统计信息<br>​            □ 例如某种引擎可能会提供对某种查询有优化的索引<br>• 并发控制<br>​    ○ mysql并发控制两个层面<br>​        § 服务器层<br>​        § 存储引擎层<br>​    ○ 读写锁<br>​        § 读锁<br>​        § 写锁<br>​    ○ 锁粒度<br>​        § 理论上锁粒度越精确，并发性能就越好，但问题是上锁，检查锁、释放锁也会消耗资源。锁粒度越精确，管理锁所需的资源就越多。所以有时会适得其反。<br>​            □ 我们需要在锁开销和数据安全之间寻求平衡<br>​        § mysql有多种选择，每种存储引擎都可以实现自己的锁策略和锁粒度<br>​        § 锁管理在存储引擎设计中非常重要<br>​            □ 固定某种锁粒度也许对某些特定场景非常友好，但对另一些会有性能问题。而Mysql这种灵活选择就不必使用单一解决方案<br>​        § 表锁<br>​            □ 开销最小<br>​            □ 锁定整个表<br>​            □ 用户执行对表的写操作时需要先获得写锁，阻塞其他的读写锁<br>​            □ 写锁优先级高，一个写锁请求是有可能被插入到读锁请求队列的前面的。反之读锁不能插到写锁队列前。<br>​            □ Mysql还可以忽略存储引擎的区别和存储引擎自己的锁机制来上锁以达到不同目的<br>​        § 行锁<br>​            □ 锁开销最大<br>​            □ 最大程度支持并发场景<br>​            □ InnoDB。XreaDB等引擎实现了行锁<br>​            □ 行锁仅在存储引擎层实现，服务器层并没有实现<br>​                ® 某个引擎的行锁实现对于服务器而言是不知道的<br>• 事务<br>​    ○ 定义<br>​    ○ ACID<br>​    ○ mysql隔离级别<br>​        § 未提交读–脏读<br>​        § 提交读（不可重复读）–不可重复读<br>​        § 可重复读（mysql默认的级别）–幻读<br>​        § 串行化<br>​    ○ 死锁<br>​        § 数据库有多种检测思索和处理死锁超时的机制<br>​            □ 如InnoDB就能检测循环依赖死锁并立刻返回错误，效率很高<br>​            □ 查询时间达到说大恩待超时的设定时间后放弃锁请求，但这种方式并不友好<br>​            □ InnoDB目前的方式是将持有最少行级排他锁的事务回滚<br>​        § 所得行为和顺序和存储引擎相关，同样的语句和顺序，存储引擎不同就有可能一个产生死锁一个没有死锁<br>​            □ 死锁多数是源于数据冲突，但也有可能是完全由存储引擎的实现方式导致<br>​        § 对于事务型系统，死锁发生后只有部分或完全回滚一个事务才能打破死锁<br>​            □ 多数时候只需要重新执行因死锁而回滚的事务即可<br>​    ○ 事务日志<br>​        § 修改数据的内存拷贝并将修改行为写入事务日志，而不真正将修改的数据持久化到硬盘<br>​        § 因为事务日志是追加的，所以是磁盘一小块区域的顺序I/O，速度远快于数据持久化的随机I/O。所以使用事务日志的速度快得多。在事务日志持久化后，其所记录的内存拷贝中的数据修改可以在后台慢慢写回硬盘。这称为预写型日志，修改数据需要写两次磁盘（日志本身+数据）。<br>​        § 若日志持久化后还未将所有修改数据写回硬盘系统就崩溃了，那么在系统重启后不同的存储引擎有不同的方式自动恢复这部分修改的数据<br>​    ○ Mysql事务<br>​        § Mysql默认使用默认提交模式AUTOCOMMIT，若非显示开始一个事务，则每个查询都被当成一个事务提交操作。<br>​        § 可以手动禁用当前连接的AUTOCOMMIT<br>​        § 禁用AUTOCOMMIT后每个查询都默认被放入同一个事务中直到显示commit或rollback<br>​        § 注意，修改AUTOCOMMIT对于MylSAM这种本身就没有事务的引擎没有影响。这些引擎相当于AUTOCOMMIT一直打开。<br>​        § 有些命令执行前会强制COMMIT当前活动事务<br>​        § Mysql服务器层是不管理事务的，事务由存储引擎实现。所以在同一个事务中使用多种存储引擎会导致不可靠。<br>​            □ 比如在一个事务中混合使用支持事务的表和不支持事务的表，在该事务需要回滚时，非事务表的数据就无法回滚<br>​        § 隐式锁定和现实锁定<br>​            □ 可以执行例如select for update，sekect lock in share mode等语句显示枷锁<br>​            □ 显示LOCK TABLE,UNLOCK TABLE是服务器层实现的，与存储引擎无关，但这不能代替事务引擎。<br>• 多版本并发控制MVCC<br>​    ○ 可认为MVCC是特殊的行锁，但实际上MVCC大多数时刻都能避免加锁，因此开销更低。<br>​    ○ 大多数据库的MVCC实现都实现了非阻塞读，写也只锁定必要锁定的行<br>​    ○ MVCC通过保存数据在某个时间点的快照实现<br>​        § 根据开始的时间不同，每个事务对应的快照版本不同，在同一时刻不同事务对同一张表看到的数据可能是不一样的<br>​    ○ 乐观并发控制与悲观并发控制<br>​    ○ InnoDB的MVVC只在可重复读和已提交读（不可重复读）两个级别工作，其他两个级别斗鱼MVCC不兼容。<br>​        § 未提交读总是读最新的数据，而非当前事务开始前的数据<br>​        § 序列化则对所有读的行都加锁<br>​    ○ InnoDB MVCC实现<br>​        §<br>​        § 每开始一个新的事务，版本号都会递增。事务开始时的版本号会作为事务的版本号。<br>​        § MVVC数据检索标准<br>​            □<br>• MYSQL存储引擎<br>​    ○ InnoDB–p54<br>​        § 存储<br>​            □ 数据库已目录的形式表现在文件系统中，每个表的数据和索引分别存在单独文件中。<br>​        § 间隙锁防止幻读<br>​        § 聚簇索引与二级索引<br>​        § 可预测性预读、自适应哈希索引、插入缓存<br>​        § 用工具支持热备<br>​    ○ MylSAM<br>​        § 存储<br>​            □ 表最大记录数<br>​        § 加锁<br>​        § 修复<br>​        § 索引<br>​            □ 针对前缀建立索引<br>​            □ 全文索引<br>​        § 延迟更新索引键<br>​    ○ 其他</p>
+
       
 
 <!-- 版权声明 -->
