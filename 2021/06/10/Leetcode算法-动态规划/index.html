@@ -16,7 +16,7 @@
 <meta property="og:description" content="Leetcode-动态规划​     动态规划简介动态规划的背景 动态规划的核心思想： 找出子问题及其子问题与原问题的关系 （转换方式）。  动态规划要解决的问题一般都是求一些问题的在最优解，求一个问题最优解时将其分为多个子问题，然后递归找到每个子问题的最优解，然后通过对每个子问题最优解的转换和组合（状态转移方程）来的到最后原问题的最优解。  组合子问题的解获取原问题的解时动态规划可行性的关键">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-06-10T05:14:44.000Z">
-<meta property="article:modified_time" content="2021-06-11T14:38:46.799Z">
+<meta property="article:modified_time" content="2021-06-12T07:50:30.832Z">
 <meta property="article:author" content="FuShengming">
 <meta property="article:tag" content="Leetcode">
 <meta property="article:tag" content="动态规划">
@@ -234,7 +234,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.1k字</span>
+        <span class="post-count">1.9k字</span>
       </span>
     </span>
 
@@ -243,7 +243,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">3分</span>
+        <span class="post-count">6分</span>
       </span>
     </span>
 </div>
@@ -320,6 +320,76 @@
 </ul>
 </li>
 </ul>
+<h2 id="线性动态规划"><a href="#线性动态规划" class="headerlink" title="线性动态规划"></a>线性动态规划</h2><p>动态规划的关键点：</p>
+<ul>
+<li>状态定义：定义子问题，如何表示目标规模的问题和规模更小的问题。</li>
+<li>状态转移：子问题之间的关系。如何通过小规模的问题的解推出大规模问题的解。</li>
+<li>初始化</li>
+<li>边界条件</li>
+</ul>
+<h3 id="线性动态规划简介"><a href="#线性动态规划简介" class="headerlink" title="线性动态规划简介"></a>线性动态规划简介</h3><ul>
+<li><p>线性动态规划规划特点</p>
+<ul>
+<li><p> 状态的推导是按照问题规模 i 从小到大依次推过去的，较大规模的问题的解依赖较小规模的问题的解。 </p>
+</li>
+<li><p>```<br>dp[i]为原问题的规模变为i时的子问题的解</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  dp[n] = f(dp[n-1], ..., dp[0])</span><br></pre></td></tr></table></figure></li>
+<li><p>大规模问题的状态至于小规模问题有关</p>
+</li>
+<li><p>问题规模完全用一个变量 i 表示（只代表问题规模，不代表dp数组一定是一维的）</p>
+</li>
+<li><p>最基本的一类dp</p>
+</li>
+</ul>
+</li>
+<li><p>常见的线性dp问题</p>
+<ul>
+<li>单串</li>
+<li>带维度的单</li>
+<li>双串</li>
+<li>矩阵</li>
+</ul>
+</li>
+</ul>
+<h3 id="单串问题"><a href="#单串问题" class="headerlink" title="单串问题"></a>单串问题</h3><p>​    输入是一个串，状态一般定义为 dp[i] := 考虑规模为[0..i]时，原问题的解，其中 i 位置的处理，根据不同的问题，主要有两种方式：</p>
+<ul>
+<li>第一种是 i 位置必须取，此时状态可以进一步描述为 dp[i] := 考虑[0..i]上，且取 i，原问题的解</li>
+<li>第二种是 i 位置可以取可以不取</li>
+</ul>
+<p>根据状态转移的特点划分种类：</p>
+<ul>
+<li><p>依赖比 i 小的 O(1) 个子问题</p>
+<ul>
+<li>dp[n]只与<strong>常数个</strong>dp[i]有关，比如只与dp[n-1]有关</li>
+<li>这使得我们在求解dp[n]时，只需要常数个dp[i], 计算某个dp[j]的时间复杂度为O(1), 因为要计算0=&lt;j&lt;=n个，总时间复杂度为O(n)</li>
+<li>若记录每个dp[j],则空间复杂度为O(n),但因为只需要记录dp[n-1],空间复杂度可优化为O(1)。</li>
+</ul>
+</li>
+<li><p> 依赖比 i 小的 O(n) 个子问题</p>
+</li>
+<li><p> <code>dp[n]</code> 与此前的更小规模的<strong>所有</strong>子问题 <code>dp[n - 1], dp[n - 2], ..., dp[1]</code> 都可能有关系。 </p>
+</li>
+<li><p> 状态转移方程为dp[i] = f(dp[i - 1], dp[i - 2], …, dp[0]) </p>
+</li>
+<li><p>因为dp多数时候用于求解最优问题，所以上面状态转移方程中的函数f，常见的就是max和min等。</p>
+</li>
+<li><p>当然，对于dp[i - 1], dp[i - 2], …, dp[0]可能会有一些筛选，但还是O(n)数量级的子问题</p>
+</li>
+<li><p>以 min 函数为例，这种形式的问题的代码常见写法如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for i = 1, ..., n</span><br><span class="line">    for j = 1, ..., i-1</span><br><span class="line">        dp[i] = min(dp[i], f(dp[j]))</span><br></pre></td></tr></table></figure>
+
+<p>时间复杂度 O(n^2)，空间复杂度 O(n)</p>
+</li>
+</ul>
+<h4 id="单串问题分类与练习"><a href="#单串问题分类与练习" class="headerlink" title="单串问题分类与练习"></a>单串问题分类与练习</h4><ul>
+<li>经典单串LIS问题–最经典的单串问题<ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-increasing-subsequence/">最长上升子序列</a></li>
+<li>最长递增子序列的个数</li>
+<li>俄罗斯套娃信封问题 —— LIS</li>
+</ul>
+</li>
+</ul>
+<p>作者：力扣 (LeetCode)<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/leetbook/read/dynamic-programming-1-plus/5o8l2i/">https://leetcode-cn.com/leetbook/read/dynamic-programming-1-plus/5o8l2i/</a><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
 
       
 
@@ -475,7 +545,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Leetcode-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="toc-number">1.</span> <span class="toc-text">Leetcode-动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%80%E4%BB%8B"><span class="toc-number">1.1.</span> <span class="toc-text">动态规划简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E8%83%8C%E6%99%AF"><span class="toc-number">1.1.1.</span> <span class="toc-text">动态规划的背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E6%80%9D%E8%80%83%E8%BF%87%E7%A8%8B"><span class="toc-number">1.1.2.</span> <span class="toc-text">动态规划的思考过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%B8%8E%E5%85%B6%E4%BB%96%E7%AE%97%E6%B3%95"><span class="toc-number">1.1.3.</span> <span class="toc-text">动态规划与其他算法</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Leetcode-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="toc-number">1.</span> <span class="toc-text">Leetcode-动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%80%E4%BB%8B"><span class="toc-number">1.1.</span> <span class="toc-text">动态规划简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E8%83%8C%E6%99%AF"><span class="toc-number">1.1.1.</span> <span class="toc-text">动态规划的背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E6%80%9D%E8%80%83%E8%BF%87%E7%A8%8B"><span class="toc-number">1.1.2.</span> <span class="toc-text">动态规划的思考过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%B8%8E%E5%85%B6%E4%BB%96%E7%AE%97%E6%B3%95"><span class="toc-number">1.1.3.</span> <span class="toc-text">动态规划与其他算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="toc-number">1.2.</span> <span class="toc-text">线性动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%80%E4%BB%8B"><span class="toc-number">1.2.1.</span> <span class="toc-text">线性动态规划简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E4%B8%B2%E9%97%AE%E9%A2%98"><span class="toc-number">1.2.2.</span> <span class="toc-text">单串问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E4%B8%B2%E9%97%AE%E9%A2%98%E5%88%86%E7%B1%BB%E4%B8%8E%E7%BB%83%E4%B9%A0"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">单串问题分类与练习</span></a></li></ol></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
