@@ -6,18 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Hexo</title>
+  <title>Leetcode算法-动态规划 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: Leetcode算法-动态规划date: 2021-06-12 13:14:44tags: [算法,Leetcode,动态规划] Leetcode-动态规划​">
+  <meta name="description" content="Leetcode-动态规划​">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/2021/06/10/Leetcode%E7%AE%97%E6%B3%95-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/index.html">
+<meta property="og:title" content="Leetcode算法-动态规划">
+<meta property="og:url" content="http://example.com/2021/06/12/Leetcode%E7%AE%97%E6%B3%95-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="title: Leetcode算法-动态规划date: 2021-06-12 13:14:44tags: [算法,Leetcode,动态规划] Leetcode-动态规划​">
+<meta property="og:description" content="Leetcode-动态规划​">
 <meta property="og:locale">
-<meta property="article:published_time" content="2021-06-10T05:14:44.558Z">
-<meta property="article:modified_time" content="2021-06-12T08:16:37.813Z">
+<meta property="article:published_time" content="2021-06-12T05:14:44.000Z">
+<meta property="article:modified_time" content="2021-06-12T08:18:20.366Z">
 <meta property="article:author" content="FuShengming">
+<meta property="article:tag" content="Leetcode">
+<meta property="article:tag" content="动态规划">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -211,10 +214,57 @@
             <article id="post-Leetcode算法-动态规划" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Leetcode算法-动态规划
+    </h1>
+  
+
+        
+        <a href="/2021/06/12/Leetcode%E7%AE%97%E6%B3%95-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="archive-article-date">
+  	<time datetime="2021-06-12T05:14:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-12</time>
+</a>
+
+           <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1.9k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">6分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+
+
+        
+
+        
+          <span class="archive-article-date">
+              阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>title: Leetcode算法-动态规划<br>date: 2021-06-12 13:14:44<br>tags: [算法,Leetcode,动态规划]</p>
-<h1 id="Leetcode-动态规划"><a href="#Leetcode-动态规划" class="headerlink" title="Leetcode-动态规划"></a>Leetcode-动态规划</h1><p>​    <span id="more"></span></p>
+        <h1 id="Leetcode-动态规划"><a href="#Leetcode-动态规划" class="headerlink" title="Leetcode-动态规划"></a>Leetcode-动态规划</h1><p>​    <span id="more"></span></p>
 <h2 id="动态规划简介"><a href="#动态规划简介" class="headerlink" title="动态规划简介"></a>动态规划简介</h2><h3 id="动态规划的背景"><a href="#动态规划的背景" class="headerlink" title="动态规划的背景"></a>动态规划的背景</h3><ul>
 <li><p>动态规划的核心思想： <strong>找出子问题及其子问题与原问题的关系 （转换方式）。</strong></p>
 </li>
@@ -280,14 +330,15 @@
 <h3 id="线性动态规划简介"><a href="#线性动态规划简介" class="headerlink" title="线性动态规划简介"></a>线性动态规划简介</h3><ul>
 <li><p>线性动态规划规划特点</p>
 <ul>
-<li><p>状态的推导是按照问题规模 i 从小到大依次推过去的，较大规模的问题的解依赖较小规模的问题的解。 </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dp[i]为原问题的规模变为i时的子问题的解</span><br><span class="line">dp[n] = f(dp[n-1], ..., dp[0])</span><br></pre></td></tr></table></figure></li>
-</ul>
-<ul>
-<li>大规模问题的状态至于小规模问题有关</li>
+<li> 状态的推导是按照问题规模 i 从小到大依次推过去的，较大规模的问题的解依赖较小规模的问题的解。 </li>
 </ul>
 </li>
-<li><p>问题规模完全用一个变量 i 表示（只代表问题规模，不代表dp数组一定是一维的）</p>
+<li><p>dp[i]为原问题的规模变为i时的子问题的解</p>
+<ul>
+<li> dp[n] = f(dp[n-1], …, dp[0])</li>
+<li> 大规模问题的状态至于小规模问题有关</li>
+<li> 问题规模完全用一个变量 i 表示（只代表问题规模，不代表dp数组一定是一维的）</li>
+</ul>
 </li>
 <li><p>最基本的一类dp</p>
 </li>
@@ -352,7 +403,7 @@
   
   <br>
   <strong>本文链接：</strong>
-  http://example.com/2021/06/10/Leetcode%E7%AE%97%E6%B3%95-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/
+  http://example.com/2021/06/12/Leetcode%E7%AE%97%E6%B3%95-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/
   <br>
   <strong>版权声明：</strong>
   本作品采用
@@ -373,6 +424,25 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Leetcode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -423,7 +493,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/06/10/Leetcode%E7%AE%97%E6%B3%95-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/06/12/Leetcode%E7%AE%97%E6%B3%95-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -437,18 +507,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/06/10/Leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-20210610/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Leetcode每日一题-20210610
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/06/08/%E7%AC%AC%E4%B8%80%E7%AB%A0%20mysql%E6%9E%B6%E6%9E%84%E4%B8%8E%E5%8E%86%E5%8F%B2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">第一章 mysql架构与历史</div>
+    <a href="/2021/06/11/Leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-20210611/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Leetcode每日一题-20210611</div>
       <i class="icon-circle-right"></i>
     </a>
   
