@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>Leetcode算法-dp背包问题专题 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Leetcode算法-dp背包问题专题​     0-1背包中的逆序问题​    降维后的dp数组的dp[i]表示的是，只在当前这次外循环（对物品列表的循环，设为j，及原来的二维数组的另外一维度）以及当前循环以前的物品中（包含此次外循环对应的物品）选时，容积为i的背包能够装下的最大价值。 ​    其中的状态转换逻辑为，此次外循环的每个dp[i],由上次外循环的dp[0i-1]转移来。即，本次外循">
+  <meta name="description" content="Leetcode算法-dp背包问题专题​">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode算法-dp背包问题专题">
 <meta property="og:url" content="http://example.com/2021/06/11/Leetcode%E7%AE%97%E6%B3%95-dp%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E4%B8%93%E9%A2%98/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Leetcode算法-dp背包问题专题​     0-1背包中的逆序问题​    降维后的dp数组的dp[i]表示的是，只在当前这次外循环（对物品列表的循环，设为j，及原来的二维数组的另外一维度）以及当前循环以前的物品中（包含此次外循环对应的物品）选时，容积为i的背包能够装下的最大价值。 ​    其中的状态转换逻辑为，此次外循环的每个dp[i],由上次外循环的dp[0i-1]转移来。即，本次外循">
+<meta property="og:description" content="Leetcode算法-dp背包问题专题​">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-06-11T13:32:55.000Z">
-<meta property="article:modified_time" content="2021-06-11T14:38:49.048Z">
+<meta property="article:modified_time" content="2021-06-12T08:03:24.403Z">
 <meta property="article:author" content="FuShengming">
 <meta property="article:tag" content="动态规划">
 <meta property="article:tag" content="背包问题">
@@ -265,7 +265,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Leetcode算法-dp背包问题专题"><a href="#Leetcode算法-dp背包问题专题" class="headerlink" title="Leetcode算法-dp背包问题专题"></a>Leetcode算法-dp背包问题专题</h1><p>​    <!--查看全文--></p>
+        <h1 id="Leetcode算法-dp背包问题专题"><a href="#Leetcode算法-dp背包问题专题" class="headerlink" title="Leetcode算法-dp背包问题专题"></a>Leetcode算法-dp背包问题专题</h1><p>​    <span id="more"></span></p>
 <h3 id="0-1背包中的逆序问题"><a href="#0-1背包中的逆序问题" class="headerlink" title="0-1背包中的逆序问题"></a>0-1背包中的逆序问题</h3><p>​    降维后的dp数组的dp[i]表示的是，只在当前<strong>这次外循环（对物品列表的循环，设为j，及原来的二维数组的另外一维度）以及当前循环以前的物品中（包含此次外循环对应的物品）选</strong>时，容积为i的背包能够装下的最大价值。</p>
 <p>​    其中的状态转换逻辑为，此次外循环的每个dp[i],由上次外循环的dp[0<del>i-1]转移来。即，本次外循环（index=j）时，体积为 i 的背包能装的价值最大值为，体积为0</del>i-1（中的某些，实际上是i-w[j]）的背包，<strong>在0~j-1的物品中选装时</strong>的最大值，再加上（i&gt;=w[j]）或不加上(i&lt;w[j]) j号物品的价值所得到的值。</p>
 <p>​    因为转移时，需要用到的是容量为i-w[j]的背包，<strong>只选装0~j-1号物品</strong>时的最大价值。如果在某次外循环时，对i是顺序遍历的，那么，在遍历到 i 体积背包前，i-w[j] 体积背包就已经被遍历到并处理（判断是否要装入j号物品并改变其对应的最大价值）了，这时dp[i-w[j]]记录的就是，i-w[j]体积背包选装 <strong>0~j号物品</strong>的价值最大价值（当然，因为顺序遍历，i-w[j]的这个最大值计算出来可能也是错误的），而非我们所需要的<strong>只选装0~j-1号物品</strong>时的最大价值。</p>
