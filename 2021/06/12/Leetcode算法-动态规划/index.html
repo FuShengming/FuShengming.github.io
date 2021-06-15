@@ -16,7 +16,7 @@
 <meta property="og:description" content="Leetcode-动态规划​">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-06-12T05:14:44.000Z">
-<meta property="article:modified_time" content="2021-06-14T16:30:49.728Z">
+<meta property="article:modified_time" content="2021-06-15T15:28:13.411Z">
 <meta property="article:author" content="FuShengming">
 <meta property="article:tag" content="Leetcode">
 <meta property="article:tag" content="动态规划">
@@ -234,7 +234,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.2k字</span>
+        <span class="post-count">3k字</span>
       </span>
     </span>
 
@@ -243,7 +243,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">7分</span>
+        <span class="post-count">10分</span>
       </span>
     </span>
 </div>
@@ -394,7 +394,7 @@
 </li>
 </ul>
 </li>
-<li>最大子数组和问题<ul>
+<li><strong>最大子数组和问题</strong><ul>
 <li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-subarray/">最大子序和</a><ul>
 <li>最大子序和关键在于判断当前元素是和以上个元素为结尾的子数组连接起来变为新子数组（以上个元素为结尾的子数组和大于零的情况），还是以上个元素为结尾的子数组和小于零而直接取当前元素本身，不管上个子数组的情况。</li>
 </ul>
@@ -404,7 +404,30 @@
 </ul>
 </li>
 <li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-sum-circular-subarray/">环形子数组的最大和</a><ul>
-<li>分原数组内和原数组外（环内）分类讨论</li>
+<li>分原数组内和原数组外（环内）分类讨论<ul>
+<li>原数组内按最大子数组和求就好</li>
+<li>最大值在原数组外（环上）则说明<ul>
+<li>首先，这个最大和的累加中一定包含arr[0]和arr[n-1],因为所选的子数组都在环内了，这两个元素是一定包含在子数组中的</li>
+<li>其次，为什么会导致最大和子数组在环内？因为arr[1]到arr[n-1]中一定有负数且其中的子数组和也一定都是负数，这使得若在原数组内，一定会是arr[0]+负数子数组和、负数子数组和+arr[n-1]、纯负数子数组和三种情况之一。这一定是要比在环内小的。<ul>
+<li>可能会有疑问，既然在环内一定会包含arr[0]和arr[n-1]，那么不存在arr[0]或arr[n-1]为负数然后使得在环内的子数组和很小的的情况吗？仔细考虑，arr[0]或arr[n-1]如果已经小到让环内的数组和特别小，比在原数组还小了，那我们直接求在原数组内的最大值就好。（<strong>实际上就是无论如何，先把原数组的最大值和环上最大值都求出来，哪个大选哪个就好</strong>）</li>
+</ul>
+</li>
+<li>那么，在环上的最大值怎么求<ul>
+<li>数组全部和sum - 子数组和最小值min即为环上最大值</li>
+<li>仔细思考，在环上的子数组实际上相当于，将arr[1]-arr[n-1]（包含这两个边界）的某个子数组刨去，再将剩下的一个头和一个尾相接也就获得了这个最大子数组。</li>
+<li>比如一个长为5的数组arr,一个环上的子数组arr[4]-&gt;arr[0]-&gt;arr[1]相当于在原数组上刨去arr[2]-&gt;arr[3]这个子数组，然后用刨完右侧的子数组（在这个例子里只有一个元素）arr[4]作为开头连接以arr[0]打头的，刨完左侧的子数组。</li>
+<li>根据环上数组上述的定义方式，不难理解，我们只要求出arr[1]-arr[n-1]（包含这两个边界）子数组和的最小值，刨去这个子数组，剩下元素的和也就变成了环上子数组的最大和了，即sum-min</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/max-submatrix-lcci/">最大子矩阵和</a><ul>
+<li>主要方式是利用前缀和对矩阵进行降维，确定行的组合i,j，将i<del>j之间的每一列分别求和（可利用之前初始化好的前缀和数组快速求得），把每列的和放到一起组成一个i行</del>j行之间的列和数组，这样也就完成了降维，接下来对这个列和数组求子数组和最大值即可</li>
+<li>这种用行组合i,j的遍历的方式使得降维成为可能，因为若最后的子数组的行上下界就是i和j，那么反之对可能的每一列，若这列在最终的子数组里，其i<del>j行的元素都是一定包含在这个数组里的，所以直接对i</del>j行每一列求和就可以降维</li>
 </ul>
 </li>
 </ul>
