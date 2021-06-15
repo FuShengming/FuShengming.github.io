@@ -16,7 +16,7 @@
 <meta property="og:description" content="Leetcode-动态规划​">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-06-12T05:14:44.000Z">
-<meta property="article:modified_time" content="2021-06-15T15:28:13.411Z">
+<meta property="article:modified_time" content="2021-06-15T15:31:06.093Z">
 <meta property="article:author" content="FuShengming">
 <meta property="article:tag" content="Leetcode">
 <meta property="article:tag" content="动态规划">
@@ -426,8 +426,8 @@
 </ul>
 </li>
 <li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/max-submatrix-lcci/">最大子矩阵和</a><ul>
-<li>主要方式是利用前缀和对矩阵进行降维，确定行的组合i,j，将i<del>j之间的每一列分别求和（可利用之前初始化好的前缀和数组快速求得），把每列的和放到一起组成一个i行</del>j行之间的列和数组，这样也就完成了降维，接下来对这个列和数组求子数组和最大值即可</li>
-<li>这种用行组合i,j的遍历的方式使得降维成为可能，因为若最后的子数组的行上下界就是i和j，那么反之对可能的每一列，若这列在最终的子数组里，其i<del>j行的元素都是一定包含在这个数组里的，所以直接对i</del>j行每一列求和就可以降维</li>
+<li>主要方式是利用前缀和对矩阵进行降维，确定行的组合i,j，将i-j之间的每一列分别求和（可利用之前初始化好的前缀和数组快速求得），把每列的和放到一起组成一个i行到j行之间的列和数组，这样也就完成了降维，接下来对这个列和数组求子数组和最大值即可</li>
+<li>这种用行组合i,j的遍历的方式使得降维成为可能，因为若最后的子数组的行上下界就是i和j，那么反之对可能的每一列，若这列在最终的子数组里，其i-j行的元素都是一定包含在这个数组里的，所以直接对i-j行每一列求和就可以降维</li>
 </ul>
 </li>
 </ul>
